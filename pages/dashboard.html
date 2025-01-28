@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Power Plant System</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Power Plant</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="logout.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h1>System Dashboard</h1>
+
+    <!-- Graphs Section -->
+    <section class="dashboard-section">
+        <h2>Graphs and Metrics</h2>
+        <div class="chart-grid">
+          <div class="chart-container">
+            <canvas id="taskProgressChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <canvas id="systemPerformanceChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <canvas id="energyDistributionChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <canvas id="futureChart"></canvas>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Flowchart Section -->
+    <section class="dashboard-section">
+      <h2>Power Plant Operation Flowchart</h2>
+      <img src="https://via.placeholder.com/800x400" alt="Flowchart" class="flowchart">
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Power Plant System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Generate Random Data for Charts
+    function getRandomData(length, max) {
+      return Array.from({ length }, () => Math.floor(Math.random() * max));
+    }
+
+    // Task Progress Chart (Bar Chart)
+    const taskProgressCtx = document.getElementById('taskProgressChart').getContext('2d');
+    new Chart(taskProgressCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Employee 1', 'Employee 2', 'Employee 3', 'Employee 4', 'Employee 5'],
+        datasets: [{
+          label: 'Tasks Completed',
+          data: getRandomData(5, 20),
+          backgroundColor: 'rgba(54, 162, 235, 0.7)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        }
+      }
+    });
+
+    // System Performance Chart (Line Chart)
+    const systemPerformanceCtx = document.getElementById('systemPerformanceChart').getContext('2d');
+    new Chart(systemPerformanceCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Performance Metrics',
+          data: getRandomData(6, 100),
+          borderColor: 'rgba(255, 99, 132, 1)',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        }
+      }
+    });
+
+    // Energy Distribution Chart (Pie Chart)
+    const energyDistributionCtx = document.getElementById('energyDistributionChart').getContext('2d');
+    new Chart(energyDistributionCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Solar', 'Wind', 'Thermal', 'Hydropower'],
+        datasets: [{
+          data: getRandomData(4, 100),
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

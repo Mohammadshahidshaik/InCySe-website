@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - Power Plant System</title>
+  <link rel="stylesheet" href="css/task.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Power Plant</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="tasks">
+    <h1>Tasks</h1>
+    <div class="task-list">
+      <!-- Task 1 -->
+      <div class="task-card">
+        <h3>Task 1: Find Admin Credentials</h3>
+        <p>Inspect the source code of the login page to find hidden credentials.</p>
+        <button class="hint-button" onclick="showHint(1)">View Hint</button>
+        <p class="hint" id="hint-1" style="display: none;">Hint: Check the HTML comments!</p>
+        <span class="status">Status: Open</span>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="task-card">
+        <h3>Task 2: SQL Injection</h3>
+        <p>Identify and exploit the SQL injection vulnerability in the login form.</p>
+        <button class="hint-button" onclick="showHint(2)">View Hint</button>
+        <p class="hint" id="hint-2" style="display: none;">Hint: Try common SQL injection payloads like `' OR '1'='1`.</p>
+        <span class="status">Status: Open</span>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="task-card">
+        <h3>Task 3: Directory Traversal</h3>
+        <p>Access sensitive files using a poorly secured endpoint.</p>
+        <button class="hint-button" onclick="showHint(3)">View Hint</button>
+        <p class="hint" id="hint-3" style="display: none;">Hint: Test with `../` to navigate directories.</p>
+        <span class="status">Status: Open</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Power Plant System. All rights reserved.</p>
+  </footer>
+
+  <script src="js/scripts.js">
+  </script>
+</body>
+</html>

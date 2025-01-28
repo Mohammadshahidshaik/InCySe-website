@@ -1,0 +1,188 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Changed to white */
+  color: #000000; /* Changed text to black */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa; /* Light grey for better contrast */
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Dark grey for the logo */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: #333; /* Dark grey text for links */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+  background-color: #e9ecef; /* Subtle hover effect */
+  border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #f0f0f0, #ffffff); /* Light gradient */
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #000; /* Black text */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555; /* Dark grey for secondary text */
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff; /* Blue for CTA button */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light grey for footer */
+  color: #333;
+}
+
+/* About Section */
+.about {
+  padding: 4rem 2rem;
+  background-color: #ffffff; /* White background */
+  color: #000; /* Black text */
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333; /* Dark grey for section heading */
+}
+
+.about p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555; /* Dark grey for secondary text */
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #f9f9f9; /* Light grey card background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Subsections in About Section */
+.subsection {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.subsection h3 {
+  font-size: 1.8rem;
+  color: #007bff; /* Blue for subsection headers */
+  margin-bottom: 1rem;
+}
+
+.subsection p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.subsection ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+.subsection ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Container for side-by-side layout */
+.power-generation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* Space between the image and text */
+  margin-top: 2rem;
+}
+
+.image-container img {
+  max-width: 400px; /* Adjust the image width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.text-container {
+  flex: 1; /* Allow the text to take up remaining space */
+}
+
+.text-container ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.text-container ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: #555;
+}
