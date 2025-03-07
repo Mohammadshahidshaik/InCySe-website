@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power Plant System</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/justgage"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+  <script src="js/dashboard.js"></script>
 </head>
 <body>
   <header class="navbar">
@@ -117,6 +121,14 @@
         </div>
       </div>
     </section>
+    <div id="gaugeP1_PCV01D"></div>
+    <div id="gaugeP1_PCV02D"></div>
+    <div id="gaugeP2_SCO"></div>
+    <div id="gaugeP3_LCV01"></div>
+    <div id="gaugeP3_LCP01"></div>
+    <canvas id="barP1_Measure"></canvas>
+    <canvas id="barP2_Measure"></canvas>
+    <canvas id="barP3_Measure"></canvas>
   </main>
 
   <footer class="footer">

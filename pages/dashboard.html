@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Power Plant System</title>
   <link rel="stylesheet" href="../css/dashboard.css">
+  
+  <!-- Chart.js for Bar Charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- JustGage for Gauge Charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
+
+  <!-- Socket.io for WebSocket Communication -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 </head>
 <body>
   <header class="navbar">
@@ -20,31 +29,66 @@
 
   <main class="dashboard">
     <h1>System Dashboard</h1>
-
-    <!-- Graphs Section -->
+    <!-- Gauge Charts Section -->
     <section class="dashboard-section">
-        <h2>Graphs and Metrics</h2>
-        <div class="chart-grid">
+        <div class="section-header">
+            <h2>State Values</h2>
+            <button class="refreshButton">Refresh Data</button>
+        </div>
+        <div class="gauge-grid">
+            <div class="chart-container">
+                <h3>P1 PCV01D</h3>
+                <div id="gaugeP1_PCV01D"></div>
+            </div>
+            <div class="chart-container">
+                <h3>P1 PCV02D</h3>
+                <div id="gaugeP1_PCV02D"></div>
+            </div>
+            <div class="chart-container">
+                <h3>P2 SCO</h3>
+                <div id="gaugeP2_SCO"></div>
+            </div>
+            <div class="chart-container">
+                <h3>P3 LCV01</h3>
+                <div id="gaugeP3_LCV01"></div>
+            </div>
+            <div class="chart-container">
+                <h3>P3 LCP01</h3>
+                <div id="gaugeP3_LCP01"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Bar Charts Section -->
+    <section class="dashboard-section">
+        <div class="section-header">
+            <h2>Measure Values</h2>
+            <button class="refreshButton">Refresh Data</button>
+        </div>
+      <!-- <h2>Measure Values</h2> -->
+      <div class="chart-grid">
+        <div class="chart-row">
           <div class="chart-container">
-            <canvas id="taskProgressChart"></canvas>
-          </div>
-          <div class="chart-container">
-            <canvas id="systemPerformanceChart"></canvas>
-          </div>
-          <div class="chart-container">
-            <canvas id="energyDistributionChart"></canvas>
-          </div>
-          <div class="chart-container">
-            <canvas id="futureChart"></canvas>
+            <h3>P1 Measure Data</h3>
+            <canvas id="barP1_Measure"></canvas>
           </div>
         </div>
-      </section>
-      
 
-    <!-- Flowchart Section -->
-    <section class="dashboard-section">
-      <h2>Power Plant Operation Flowchart</h2>
-      <img src="https://via.placeholder.com/800x400" alt="Flowchart" class="flowchart">
+        <div class="chart-row">
+          <div class="chart-container">
+            <h3>P2 Measure Data</h3>
+            <canvas id="barP2_Measure"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-container">
+            <h3>P3 Measure Data</h3>
+            <canvas id="barP3_Measure"></canvas>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -52,75 +96,7 @@
     <p>&copy; 2025 Power Plant System. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Generate Random Data for Charts
-    function getRandomData(length, max) {
-      return Array.from({ length }, () => Math.floor(Math.random() * max));
-    }
-
-    // Task Progress Chart (Bar Chart)
-    const taskProgressCtx = document.getElementById('taskProgressChart').getContext('2d');
-    new Chart(taskProgressCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Employee 1', 'Employee 2', 'Employee 3', 'Employee 4', 'Employee 5'],
-        datasets: [{
-          label: 'Tasks Completed',
-          data: getRandomData(5, 20),
-          backgroundColor: 'rgba(54, 162, 235, 0.7)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: true }
-        }
-      }
-    });
-
-    // System Performance Chart (Line Chart)
-    const systemPerformanceCtx = document.getElementById('systemPerformanceChart').getContext('2d');
-    new Chart(systemPerformanceCtx, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-          label: 'Performance Metrics',
-          data: getRandomData(6, 100),
-          borderColor: 'rgba(255, 99, 132, 1)',
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          fill: true,
-          tension: 0.4
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: true }
-        }
-      }
-    });
-
-    // Energy Distribution Chart (Pie Chart)
-    const energyDistributionCtx = document.getElementById('energyDistributionChart').getContext('2d');
-    new Chart(energyDistributionCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Solar', 'Wind', 'Thermal', 'Hydropower'],
-        datasets: [{
-          data: getRandomData(4, 100),
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'top' }
-        }
-      }
-    });
-  </script>
+  <!-- Load JavaScript after libraries -->
+  <script src="../js/dashboard.js"></script>
 </body>
 </html>
